@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<project name="nregex" default="build" basedir=".">
+  <description>
+    NRegex is a port of jregex, a perl5.6 compatible regular expression engine for .NET.
+  </description>
+
+  <property name="src.raw.dir" value="src"/>
+  <property name="src.dir" value="src/main"/>
+  <property name="bin.dir" value="bin"/>
+
+  <target name="compile" description="Compile the source files for the project.">
+    <csc target="library" output="${bin.dir}/NRegex.dll" debug="true">
+      <sources>
+        <include name="${src.dir}/NRegex/**/*.cs" />
+      </sources>
+    </csc>
+  </target>
+
+  <target name="build" depends="compile" description="Builds everything">
+  </target>
+
+  <target name="clean" description="clean almost everything">
+    <delete file="${bin.dir}/NRegex.dll"/>
+    <delete file="${bin.dir}/NRegex.dll.mdb"/>
+  </target>
+</project>
